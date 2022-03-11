@@ -19,7 +19,6 @@ RESTRICT="!test? ( test )"
 DEPEND="
 	>=dev-libs/aws-c-cal-0.4.5:=[static-libs=]
 	>=dev-libs/aws-c-common-0.5.2:=[static-libs=]
-	>=dev-libs/s2n-0.10.21:=[static-libs=]
 	>=dev-libs/aws-c-io-0.9.2:=[static-libs=]
 	>=dev-libs/aws-c-compression-0.2.14:=[static-libs=]
 	>=dev-libs/aws-c-http-0.6.9:=[static-libs=]
