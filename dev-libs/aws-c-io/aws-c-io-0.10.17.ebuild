@@ -19,7 +19,7 @@ RESTRICT="!test? ( test )"
 DEPEND="
 	>=dev-libs/aws-c-common-0.6.12:=[static-libs=]
 	>=dev-libs/aws-c-cal-0.4.5:=[static-libs=]
-	>=dev-libs/s2n-1.0.0:=[static-libs=]
+	>=dev-libs/s2n-1.0.12:=[static-libs=]
 "
 
 PATCHES=(
