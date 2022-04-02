@@ -22,6 +22,7 @@ DEPEND="
 	>=dev-libs/aws-c-io-0.10.10:=[static-libs=]
 	>=dev-libs/aws-c-compression-0.2.10:=[static-libs=]
 	>=dev-libs/aws-c-http-0.6.2:=[static-libs=]
+	>=dev-libs/aws-c-sdkutils-0.1.0:=[static-libs=]
 "
 
 PATCHES=(
