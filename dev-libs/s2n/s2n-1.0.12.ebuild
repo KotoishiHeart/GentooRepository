@@ -40,6 +40,7 @@ src_configure() {
 	local mycmakeargs=(
 		-DBUILD_SHARED_LIBS=$(usex !static-libs)
 		-DBUILD_TESTING=$(usex test)
+		-DUNSAFE_TREAT_WARNINGS_AS_ERRORS=OFF
 	)
 	cmake_src_configure
 }
