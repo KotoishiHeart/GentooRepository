@@ -1,4 +1,4 @@
 >=dev-libs/aws-c-s3-0.1.31
->=dev-libs/aws-c-io-0.10.11
+>=dev-libs/aws-c-io-0.10.13
 >=dev-libs/aws-crt-cpp-0.17.11
 >=dev-libs/s2n-1.0.1
