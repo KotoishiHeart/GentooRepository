@@ -5,8 +5,8 @@ EAPI=7
 
 inherit cmake
 
-DESCRIPTION="AWS SDK Utilities Library"
-HOMEPAGE="https://github.com/awslabs/aws-c-sdkutils"
+DESCRIPTION="C99 implementation of the HTTP/1.1 and HTTP/2 specifications"
+HOMEPAGE="https://github.com/awslabs/aws-c-http"
 SRC_URI="https://github.com/awslabs/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="Apache-2.0"
@@ -18,10 +18,13 @@ RESTRICT="!test? ( test )"
 
 DEPEND="
 	>=dev-libs/aws-c-common-0.6.20:=[static-libs=]
+	>=dev-libs/aws-c-cal-0.5.17:=[static-libs=]
+	>=dev-libs/aws-c-io-0.6.20:=[static-libs=]
+	>=dev-libs/aws-c-compression-0.2.14:=[static-libs=]
 "
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-0.1.2-cmake-prefix.patch
+	"${FILESDIR}"/${PN}-0.6.13-cmake-prefix.patch
 )
 
 src_configure() {

@@ -17,11 +17,11 @@ IUSE="static-libs test"
 RESTRICT="!test? ( test )"
 
 DEPEND="
-	>=dev-libs/aws-c-common-0.5.2:=[static-libs=]
+	>=dev-libs/aws-c-common-0.6.20:=[static-libs=]
 "
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-0.2.10-cmake-prefix.patch
+	"${FILESDIR}"/${PN}-0.2.14-cmake-prefix.patch
 )
 
 src_configure() {

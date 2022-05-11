@@ -5,8 +5,8 @@ EAPI=7
 
 inherit cmake
 
-DESCRIPTION="C99 library implementation of AWS client-side authentication: standard credentials providers and signing."
-HOMEPAGE="https://github.com/awslabs/aws-c-auth"
+DESCRIPTION="AWS SDK for C module, handles IO and TLS work for application protocols"
+HOMEPAGE="https://github.com/awslabs/aws-c-io"
 SRC_URI="https://github.com/awslabs/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="Apache-2.0"
@@ -19,14 +19,11 @@ RESTRICT="!test? ( test )"
 DEPEND="
 	>=dev-libs/aws-c-common-0.6.20:=[static-libs=]
 	>=dev-libs/aws-c-cal-0.5.17:=[static-libs=]
-	>=dev-libs/aws-c-io-0.10.20:=[static-libs=]
-	>=dev-libs/aws-c-compression-0.2.14:=[static-libs=]
-	>=dev-libs/aws-c-http-0.6.13:=[static-libs=]
-	>=dev-libs/aws-c-sdkutils-0.1.1:=[static-libs=]
+	>=dev-libs/s2n-1.3.10:=[static-libs=]
 "
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-0.6.11-cmake-prefix.patch
+	"${FILESDIR}"/${PN}-0.10.20-cmake-prefix.patch
 )
 
 src_configure() {
@@ -34,5 +31,15 @@ src_configure() {
 		-DBUILD_SHARED_LIBS=$(usex !static-libs)
 		-DBUILD_TESTING=$(usex test)
 	)
+
+	if use test; then
+		# (#759802) Due to network sandboxing of portage, internet connectivity
+		# tests will always fail. If you need a USE flag, because you want/need
+		# to perform these tests manually, please open a bug report for it.
+		mycmakeargs+=(
+			-DENABLE_NET_TESTS=OFF
+		)
+	fi
+
 	cmake_src_configure
 }

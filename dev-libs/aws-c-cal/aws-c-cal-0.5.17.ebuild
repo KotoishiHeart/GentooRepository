@@ -5,8 +5,8 @@ EAPI=7
 
 inherit cmake
 
-DESCRIPTION="AWS SDK Utilities Library"
-HOMEPAGE="https://github.com/awslabs/aws-c-sdkutils"
+DESCRIPTION="Crypto Abstraction Layer: Cross-Platform C99 wrapper for cryptography primitives"
+HOMEPAGE="https://github.com/awslabs/aws-c-cal"
 SRC_URI="https://github.com/awslabs/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="Apache-2.0"
@@ -18,10 +18,12 @@ RESTRICT="!test? ( test )"
 
 DEPEND="
 	>=dev-libs/aws-c-common-0.6.20:=[static-libs=]
+	>=dev-libs/openssl-1.1.1:=[static-libs=]
 "
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-0.1.2-cmake-prefix.patch
+	"${FILESDIR}"/${PN}-0.5.17-cmake-prefix.patch
+	"${FILESDIR}"/${PN}-0.5.17-add_libz_for_static.patch
 )
 
 src_configure() {

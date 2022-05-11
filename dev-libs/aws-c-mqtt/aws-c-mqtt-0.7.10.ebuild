@@ -17,15 +17,15 @@ IUSE="static-libs test"
 RESTRICT="!test? ( test )"
 
 DEPEND="
-	>=dev-libs/aws-c-common-0.6.12:=[static-libs=]
-	>=dev-libs/aws-c-cal-0.4.5:=[static-libs=]
-	>=dev-libs/aws-c-io-0.9.2:=[static-libs=]
+	>=dev-libs/aws-c-common-0.6.20:=[static-libs=]
+	>=dev-libs/aws-c-cal-0.5.17:=[static-libs=]
+	>=dev-libs/aws-c-io-0.10.20:=[static-libs=]
 	>=dev-libs/aws-c-compression-0.2.14:=[static-libs=]
-	>=dev-libs/aws-c-http-0.6.9:=[static-libs=]
+	>=dev-libs/aws-c-http-0.6.13:=[static-libs=]
 "
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-0.7.0-cmake-prefix.patch
+	"${FILESDIR}"/${PN}-0.7.10-cmake-prefix.patch
 )
 
 src_configure() {
